@@ -1,0 +1,951 @@
+/* Анимация движущегося фона
+@keyframes moveBg {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    background: linear-gradient(270deg, rgb(64, 143, 223), #d21200, rgb(201, 104, 0));
+    background-size: 600% 600%;
+    animation: moveBg 15s ease infinite;
+} */
+
+
+/* Основные стили для всей страницы */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f4;
+    line-height: 1.6;
+    overflow-x: hidden; /* Скрывает горизонтальный скролл */
+    /* font-family: 'Baskervville SC'; */
+}
+
+/* Тёмная тема */
+.dark-theme {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Светлая тема */
+.light-theme {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+
+/* Стили для навигационной панели */
+.navbar {
+    background-color: #333;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.nav-menu-image {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.nav-menu li {
+    display: inline;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease;
+    border-radius: 5px;
+}
+
+.nav-menu a:hover {
+    background-color: #ff5722;
+}
+
+
+/* Секция приветствия */
+.hero-section {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #333, #900);
+    color: #fff;
+    position: relative;
+}
+
+.hero-section .highlight {
+    color: #ff5722;
+}
+
+.hero-section h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    background-color: #ff5722;
+    color: #fff;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 30px;
+    margin-top: 20px;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e64a19;
+}
+
+/* Модальное окно */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    color: black;
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 600px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+#searchInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/* Секция команды */
+.team-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: 40px;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    padding: 40px 20px;
+    background-color: #000;
+    border-top: 4px solid #900;
+    box-sizing: border-box; /* Учитывает паддинги в ширине */
+}
+
+.team-member {
+    text-align: center;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.team-member:hover {
+    transform: scale(1.05);
+}
+
+.team-member-name {
+    color: #ff5722;
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.team-member-age,
+.team-member-role {
+    color: #fff;
+    font-weight: 700;
+}
+
+.team-member-photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Секция "О проекте" */
+.about-container {
+    background-color: #000;
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 4px solid #900;
+    box-sizing: border-box; /* Учитывает паддинги в ширине */
+    /* font-family: 'Baskervville SC'; */
+}
+
+.about-title {
+    color: #ff5722;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.about-subtitle {
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+/* Секция загрузок */
+.download-container {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+    box-sizing: border-box; /* Учитывает паддинги в ширине */
+}
+
+.download-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+/* Футер */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    position: relative;
+    width: 100%;
+    border-top: 4px solid #900;
+    box-sizing: border-box; /* Учитывает паддинги в ширине */
+}
+
+
+/* Стили для страницы загрузок */
+.downloads-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+    border-top: 4px solid #900;
+}
+
+.downloads-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.downloads-section p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.download-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    transition: transform 0.3s ease;
+}
+
+.download-option:hover {
+    transform: translateY(-5px);
+}
+
+.os-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+.download-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.download-btn:hover {
+    background-color: #e64a19;
+}
+
+
+/* Контейнер для формы авторизации/регистрации */
+.auth-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Вкладки */
+.auth-tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.tab-link {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    outline: none;
+}
+
+.tab-link:hover {
+    background-color: #ff5722;
+}
+
+.tab-link.active {
+    background-color: #ff5722;
+}
+
+/* Содержание вкладок */
+.tab-content {
+    display: none;
+}
+
+.tab-content:first-child {
+    display: block;
+}
+
+/* Стили формы */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.form-button {
+    padding: 10px;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+    background-color: #e64a19;
+}
+
+
+/* Контейнер для профиля */
+.profile-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Стили для аватара пользователя */
+.profile-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+/* Стили для деталей профиля */
+.profile-details {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.profile-details h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.profile-details p {
+    font-size: 16px;
+    color: #666;
+}
+
+/* Кнопки действий профиля */
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Стили для страницы новостей */
+
+.navbar {
+    background-color: #333;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.nav-menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-menu li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-menu li a.active {
+    color: #ff5722;
+}
+
+.news-section {
+    padding: 40px 20px;
+    text-align: center;
+    color: #333;
+    background-color: #fff;
+}
+
+.news-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.news-item {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    text-align: left;
+    width: 60%;
+    margin: 20px auto;
+}
+
+.news-item-title {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.news-date {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.news-description {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.read-more-button {
+    text-decoration: none;
+    color: #fff;
+    background-color: #ff5722;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+.read-more-button:hover {
+    background-color: #e64a19;
+}
+
+/* Основной контейнер для страницы */
+.main-container {
+    display: flex;
+    padding: 20px;
+}
+
+/* Стили для боковой панели */
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+    height: auto;
+    position: sticky;
+    top: 0;
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar-menu li {
+    margin-bottom: 15px;
+}
+
+.sidebar-menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.sidebar-menu li a:hover {
+    color: #ff5722;
+}
+
+/* Основной контент */
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Стили для контента инструкций */
+.instructions-content {
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* Стили для раздела About */
+.about-section {
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.about-section h2 {
+    color: #333;
+    font-size: 22px;
+}
+
+.about-section p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Стили для раздела What's New */
+.whats-new-section {
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.whats-new-section h2 {
+    color: #333;
+    font-size: 22px;
+}
+
+.whats-new-list {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.whats-new-list li {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.forum-container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+
+.forum-topics, .forum-posts {
+    margin-bottom: 40px;
+}
+
+.topics-list {
+    list-style: none;
+    padding: 0;
+}
+
+.topics-list li {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.new-topic-btn {
+    background-color: #900;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.post {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.reply-form {
+    margin-top: 20px;
+}
+
+.reply-form textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.reply-form button {
+    background-color: #900;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+
+/* Секция новостей */
+.news-container {
+    width: 80%;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.news-container h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.news-container p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.news-container ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.news-container ul li {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+/* Кнопки навигации */
+.navigation-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.navigation-buttons .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #ff5722;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.navigation-buttons .btn:hover {
+    background-color: #e64a19;
+}
+
+/* Flex-боксы для ссылок */
+.social-links, .bot-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-box, .bot-box {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.social-box h4 {
+    margin-top: 0;
+}
+
+.social-box ul, .bot-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-box ul li, .bot-box ul li {
+    margin-bottom: 10px;
+}
+
+.social-box ul li a, .bot-box ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.social-box ul li a i, .bot-box ul li a i {
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+
+.social-box ul li a:hover, .bot-box ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Основной контейнер для новостей и боковой панели */
+.news-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Стили для секции новостей */
+.news-articles {
+    flex: 3; /* Основной контент занимает больше места */
+    margin-right: 20px;
+}
+
+.news-item {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.social-box, .bot-box {
+    margin-bottom: 20px;
+}
+
+.social-box ul, .bot-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.social-box ul li, .bot-box ul li {
+    margin-bottom: 10px;
+}
+
+
+/* Кнопки навигации */
+.navigation-buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.navigation-buttons .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #ff5722;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.navigation-buttons .btn:hover {
+    background-color: #e64a19;
+}
+
+/* Добавляем плавные переходы для всех страниц */
+body {
+    transition: opacity 0.5s ease-in-out;
+    opacity: 1;
+}
+
+/* Добавляем плавные переходы к интерактивным элементам */
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Кнопки с анимацией при наведении */
+.btn:hover {
+    background-color: #e64a19;
+    transform: scale(1.05);
+}
+
+/* Изображения с плавной анимацией */
+img:hover {
+    transform: scale(1.05);
+}
+
+/* Анимация текста */
+h1, p, a {
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+}
+
+.fade-in-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-element.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Анимация перехода между страницами */
+.fade-in {
+    opacity: 1;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+
+/* Медиа запросы */
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 12px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .nav-menu a {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,85 @@
+
+  <style>
+    #music-player {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #controls {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    input[type="file"] {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="music-player">
+    <audio id="audio" controls>
+      <source src="your-music.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+
+    <div id="controls">
+      <button id="play">Play</button>
+      <button id="pause">Pause</button>
+      <button id="stop">Stop</button>
+    </div>
+
+    <input type="file" id="file-input" accept="audio/*">
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playButton = document.getElementById('play');
+    const pauseButton = document.getElementById('pause');
+    const stopButton = document.getElementById('stop');
+    const fileInput = document.getElementById('file-input');
+
+    playButton.addEventListener('click', () => {
+      audio.play();
+    });
+
+    pauseButton.addEventListener('click', () => {
+      audio.pause();
+    });
+
+    stopButton.addEventListener('click', () => {
+      audio.pause();
+      audio.currentTime = 0;
+    });
+
+    fileInput.addEventListener('change', function(event) {
+      const file = event.target.files[0];
+      const objectURL = URL.createObjectURL(file);
+      audio.src = objectURL;
+      audio.play();
+    });
+  </script>
+

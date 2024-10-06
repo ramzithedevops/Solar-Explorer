@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Forum | Solar Explorer</title>
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <header class="navbar">
+        <nav>
+            <ul class="nav-menu">
+                <img class="nav-menu-image" src="./img/team_logo.png">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="instructions.html">INSTRUCTION</a></li>
+                <li><a href="app.html">APP</a></li>
+                <li><a href="news.html">NEWS</a></li>
+                <li><a href="profile.html">PROFILE</a></li>
+                <li><a href="forum.html">FORUM</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Основной контейнер форума -->
+    <div class="forum-container">
+        <h1>Community Forum</h1>
+
+        <!-- Раздел темы -->
+        <section class="forum-topics">
+            <h2>Recent Topics</h2>
+            <ul class="topics-list">
+                <li>
+                    <a href="#topic1">How to use Solar Explorer effectively?</a>
+                    <p>Started by <strong>JohnDoe</strong> on Sep 1, 2024</p>
+                </li>
+                <li>
+                    <a href="#topic2">Share your experience exploring Mars!</a>
+                    <p>Started by <strong>JaneSmith</strong> on Aug 29, 2024</p>
+                </li>
+                <li>
+                    <a href="#topic3">Best settings for beginner explorers?</a>
+                    <p>Started by <strong>Astronomer99</strong> on Aug 25, 2024</p>
+                </li>
+            </ul>
+            <button class="new-topic-btn">Create New Topic</button>
+        </section>
+
+        <!-- Раздел сообщений -->
+        <section class="forum-posts">
+            <h2>Discussion: How to use Solar Explorer effectively?</h2>
+            <div class="post">
+                <p><strong>JohnDoe:</strong> I found the app really helpful for visualizing the Solar System. Any tips on maximizing its use?</p>
+                <span class="post-date">Posted on Sep 1, 2024</span>
+            </div>
+            <div class="post">
+                <p><strong>JaneSmith:</strong> Make sure to check out the AR features, they are amazing!</p>
+                <span class="post-date">Posted on Sep 2, 2024</span>
+            </div>
+            <form class="reply-form">
+                <textarea placeholder="Add your reply..." required></textarea>
+                <button type="submit">Submit Reply</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SSK. All rights reserved.</p>
+    </footer>
+
+    <!-- Скрипт для плавных переходов -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.add('fade-in');
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const href = this.href;
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                });
+            });
+        }); 
+    </script>
+</body>
+</html>

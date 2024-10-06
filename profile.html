@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+    <link rel="icon" href="img/team_logo.png" type="image/x-icon">
+    <title>User Profile</title>
+</head>
+<body>
+    <!-- Панель навигации -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <img class="nav-menu-image" src="./img/team_logo.png" alt="Team Logo">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="instruction.html">INSTRUCTION</a></li>
+            <li><a href="app.html">APP</a></li>
+            <li><a href="news.html">NEWS</a></li>
+            <li><a href="profile.html">PROFILE</a></li>
+        </ul>
+    </nav>
+
+    <!-- Основное содержимое страницы профиля -->
+    <section class="profile-container">
+        <h2>Welcome, [User's Name]!</h2>
+        <div class="profile-details">
+            <img src="./img/default-avatar.png" alt="User Avatar" class="profile-avatar">
+            <h3>Profile Information</h3>
+            <p><strong>Username:</strong> [Username]</p>
+            <p><strong>Email:</strong> [User Email]</p>
+            <p><strong>Member since:</strong> [Join Date]</p>
+        </div>
+
+        <div class="profile-actions">
+            <button class="form-button" onclick="editProfile()">Edit Profile</button>
+            <button class="form-button" onclick="logout()">Logout</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SSK. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript для действий с профилем -->
+    <script>
+        function editProfile() {
+            alert('Editing profile feature coming soon.');
+        }
+
+        function logout() {
+            window.location.href = 'auth.html'; // Перенаправление на страницу авторизации после выхода
+        }
+    </script>
+
+    <!-- Скрипт для плавных переходов -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.add('fade-in');
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const href = this.href;
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                });
+            });
+        }); 
+    </script>
+</body>
+</html>

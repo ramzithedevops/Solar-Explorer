@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+    <link rel="icon" href="./img/team_logo.png" type="image/x-icon">
+    <!-- Подключаем Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>News | Solar Explorer</title>
+</head>
+<body>
+    <!-- Панель навигации -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <img class="nav-menu-image" src="./img/team_logo.png">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="instructions.html">INSTRUCTION</a></li>
+            <li><a href="app.html">APP</a></li>
+            <li><a href="news.html">NEWS</a></li>
+            <li><a href="auth.html">PROFILE</a></li>
+            <!-- <button id="toggleTheme" class="btn">Toggle Theme</button> -->
+        </ul>
+    </nav>
+
+    <input type="text" id="searchInput" placeholder="Search news..." onkeyup="filterNews()">
+
+    <!-- Основной контент страницы новостей -->
+    <main class="news-container">
+        <section class="news-articles">
+            <article class="news-item">
+                <div class="news-article">
+                    <h2 class="news-item-title">App Update: Version 1.0 Released!</h2>
+                    <p class="news-date">Published on: October 6, 2024</p>
+                    <p class="news-description">We're excited to announce the release of version 1.1 of the Solar Explorer app. This update brings new features and improvements to enhance your experience. Click below to read more about the update details.</p>
+                    <a href="news3.html" class="read-more-button">Read More</a>
+                </div>
+            </article>
+    
+            <article class="news-item">
+                <div class="news-article">
+                    <h2 class="news-item-title">Telegram & Discord Bots Launch!</h2>
+                    <p class="news-date">Published on: October 6, 2024</p>
+                    <p class="news-description">We are excited to announce the launch of our official Telegram and Discord bots! Stay connected with the latest space news, updates, and community discussions.</p>
+                    <a href="news2.html" class="read-more-button">Read More</a>
+                </div>
+            </article>
+    
+            <article class="news-item">
+                <div class="news-article">
+                    <h2 class="news-item-title">About Our Team</h2>
+                    <p class="news-date">Published on: October 5, 2024</p>
+                    <p class="news-description">Meet the amazing team behind Solar Explorer! We are passionate about space exploration and committed to delivering an engaging experience for our users.</p>
+                    <a href="news1.html" class="read-more-button">Read More</a>
+                </div>
+            </article>
+        </section>
+    
+        <!-- Боковая панель -->
+        <aside class="sidebar">
+            <h3>Connect with us</h3>
+            <div class="social-links">
+                <div class="social-box">
+                    <h4>Social Media</h4>
+                    <ul>
+                        <li><a href="https://t.me/se_explorer" target="_blank"><i class="fab fa-telegram"></i> Telegram Channel</a></li>
+                        <li><a href="https://discord.gg/ZM2DHVcU" target="_blank"><i class="fab fa-discord"></i> Discord Server</a></li>
+                    </ul>
+                </div>
+                <div class="social-box">
+                    <h4>Other Platforms</h4>
+                    <ul>
+                        <li><a href="https://facebook.com/your_facebook" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="https://twitter.com/your_twitter" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="https://instagram.com/your_instagram" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+                <div class="social-box">
+                    <h4>Video Content</h4>
+                    <ul>
+                        <li><a href="https://youtube.com/your_youtube_channel" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+    
+            <h3>Our Bots</h3>
+            <div class="bot-links">
+                <div class="bot-box">
+                    <ul>
+                        <li><a href="https://t.me/SolarExplorer_Assistant_bot" target="_blank"><i class="fab fa-telegram"></i> Telegram Bot</a></li>
+                    </ul>
+                </div>
+            </div>
+        </aside>
+    </main>
+    
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SSK. All rights reserved.</p>
+    </footer>
+
+    <!-- Скрипт для плавных переходов -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.add('fade-in');
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const href = this.href;
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                });
+            });
+        }); 
+
+        function filterNews() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const articles = document.querySelectorAll('.news-article');
+
+            articles.forEach(article => {
+                const title = article.querySelector('h2').textContent.toLowerCase();
+                if (title.includes(input)) {
+                    article.style.display = 'block';
+                } else {
+                    article.style.display = 'none';
+                }
+            });
+        }   
+
+    </script>
+</body>
+</html>

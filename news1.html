@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css" type="text/css">
+    <link rel="icon" href="img/team_logo.png" type="image/x-icon">
+    <title>About Our Team | Solar Explorer</title>
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <header class="navbar">
+        <nav>
+            <ul class="nav-menu">
+                <img class="nav-menu-image" src="img/team_logo.png">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="instructions.html">INSTRUCTION</a></li>
+                <li><a href="app.html">APP</a></li>
+                <li><a href="news.html">NEWS</a></li>
+                <li><a href="profile.html">PROFILE</a></li>
+                <!-- <button id="toggleTheme" class="btn">Toggle Theme</button> -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Секция новостей -->
+    <section class="news-container">
+        <article>
+            <h1>About Our Team</h1>
+            <p>Our team consists of talented individuals who have worked hard to create Solar Explorer. From 3D artists to developers, everyone has contributed their expertise to make this project a success.</p>
+            <ul>
+                <li>Jovid Kanoat - 3D artist, Source Manager</li>
+                <li>Suhrob Kholmatov - Copywriter, Project Manager</li>
+                <li>Sultonsho Nazarshoev - Leader, Back-end Developer</li>
+                <li>Edward Brooks - Front-end Developer</li>
+                <li>Mehroj Davlyatov - 3D artist, Idea Manager</li>
+            </ul>
+        </article>
+    </section>
+
+    <!-- Кнопки навигации -->
+    <div class="navigation-buttons">
+        <a href="news.html" class="btn">Back to News List</a>
+        <a href="news3.html" class="btn">Previous News</a>
+        <a href="news2.html" class="btn">Next News</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SSK. All rights reserved.</p>
+    </footer>
+
+    <!-- Скрипт для плавных переходов -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.add('fade-in');
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const href = this.href;
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                });
+            });
+        }); 
+    </script>
+</body>
+</html>

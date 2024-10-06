@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+    <link rel="icon" href="img/team_logo.png" type="image/x-icon">
+    <title>SE - APP LAUNCH PAGE</title>
+    <style>
+        body {
+            background-size: cover;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #333, black);
+            color: #fff;
+        }
+        .app-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+        .logo {
+            width: 200px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            animation: fadeIn 2s ease-in-out;
+        }
+        /* Анимация для логотипа */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        /* Анимация для кнопок */
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Логотип */
+        .logo {
+            width: 200px;
+            margin-bottom: 20px;
+            border-radius: 50%;
+            animation: fadeIn 2s ease-in-out;
+        }
+        
+        /* Кнопки */
+        .btn {
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: #ff5722;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            animation: slideIn 1.5s ease-in-out;
+            animation-fill-mode: forwards; /* Оставляем конечное состояние */
+        }
+        
+        .btn:hover {
+            background-color: #e64a19;
+        }
+
+        /* Описание проекта */
+        .project-description {
+            max-width: 600px;
+            margin: 20px auto;
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <img class="nav-menu-image" src="./img/team_logo.png">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="instructions.html">INSTRUCTION</a></li>
+            <li><a href="app.html">APP</a></li>
+            <li><a href="news.html">NEWS</a></li>
+            <li><a href="auth.html">PROFILE</a></li>
+            <!-- <button id="toggleTheme" class="btn">Toggle Theme</button> -->
+        </ul>
+    </nav>
+
+    <div class="app-container">
+        <!-- Логотип команды -->
+        <img class="logo" src="img/team_logo.png" alt="Simple Solar Knights Logo">
+        
+        <!-- Текст -->
+        <h1>By Simple Solar Knights</h1>
+
+        <!-- Описание проекта -->
+        <p class="project-description">
+            Solar Explorer – It is an innovative app for space exploration. 
+            It allows users to explore space objects, get information about planets and 
+            interact with models in real time. Welcome on board!
+        </p>
+
+        <!-- Кнопка запуска приложения -->
+        <a href="webapp.html" class="btn" target="_blank">Launch Solar Explorer</a>
+
+        <!-- Кнопки перехода на другие страницы -->
+        <a href="instructions.html" class="btn">Go to Instructions</a>
+        <a href="news.html" class="btn">Go to News</a>
+    </div>
+
+    <!-- Футер -->
+    <footer>
+        <p>&copy; 2024 Simple Solar Knights. All rights reserved.</p>
+    </footer>
+
+    <!-- Скрипт для плавных переходов
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.add('fade-in');
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const href = this.href;
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                });
+            });
+        });
+    </script> -->
+</body>
+</html>

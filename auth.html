@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+    <link rel="icon" href="img/team_logo.png" type="image/x-icon">
+    <title>User Registration / Authorization</title>
+</head>
+<body>
+    <!-- Панель навигации -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <img class="nav-menu-image" src="./img/team_logo.png">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="instruction.html">INSTRUCTION</a></li>
+            <li><a href="app.html">APP</a></li>
+            <li><a href="news.html">NEWS</a></li>
+            <li><a href="auth.html">PROFILE</a></li>
+        </ul>
+    </nav>
+
+    <!-- Основное содержимое страницы регистрации / авторизации -->
+    <section class="auth-container">
+        <div class="auth-tabs">
+            <button class="tab-link active" onclick="openTab(event, 'login')">Login</button>
+            <button class="tab-link" onclick="openTab(event, 'register')">Register</button>
+        </div>
+
+        <!-- Вкладка для входа -->
+        <div id="login" class="tab-content">
+            <h2>Login</h2>
+            <form action="login-handler.php" method="post">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit" class="form-button">Login</button>
+            </form>
+        </div>
+
+        <!-- Вкладка для регистрации -->
+        <div id="register" class="tab-content" style="display:none;">
+            <h2>Register</h2>
+            <form action="register-handler.php" method="post">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                <button type="submit" class="form-button">Register</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SSK. All rights reserved.</p>
+    </footer>
+
+    <!-- Скрипт для переключения вкладок -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tab-link");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+</body>
+</html>

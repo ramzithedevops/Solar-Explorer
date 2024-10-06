@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+    <link rel="icon" href="img/team_logo.png" type="image/x-icon">
+    <title>Welcome to Solar Explorer!</title>
+</head>
+<body>
+    <!-- Панель навигации -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <img class="nav-menu-image" src="./img/team_logo.png">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="instructions.html">INSTRUCTION</a></li>
+            <li><a href="app.html">APP</a></li>
+            <li><a href="news.html">NEWS</a></li>
+            <li><a href="auth.html">PROFILE</a></li>
+            <!-- <button id="toggleTheme" class="btn">Toggle Theme</button> -->
+        </ul>
+    </nav>
+
+
+    <!-- Приветствие -->
+    <header class="hero-section">
+        <h1>Welcome to <span class="highlight">Solar Explorer!</span></h1>
+        <p>Explore the Solar System with our app.</p>
+        <a href="app.html" class="cta-button">Go to the App</a>
+    </header>
+
+    <!-- Ознакомление с командой -->
+    <section id="team" class="fade-in-element">
+        <h2 class="team-title">Our team</h2>
+        <div class="team-container">
+            <div class="team-member">
+                <img class="team-member-photo" src="./img/Jovid.jpg" alt="Team member">
+                <h3 class="team-member-name">Jovid Kanoat</h3>
+                <p class="team-member-age">(17 y.o)</p>
+                <p class="team-member-role">3D artist, source manager</p>
+            </div>
+            <div class="team-member">
+                <img class="team-member-photo" src="./img/Suhrob.jpg" alt="Team member">
+                <h3 class="team-member-name">Suhrob Kholmatov</h3>
+                <p class="team-member-age">(17 y.o)</p>
+                <p class="team-member-role">Copywriter, Project manager, Main Artist</p>
+            </div>
+            <div class="team-member">
+                <img class="team-member-photo" src="./img/Sultonsho2.jpg" alt="Team member">
+                <h3 class="team-member-name">Sultonsho Nazarshoev</h3>
+                <p class="team-member-age">(16 y.o)</p>
+                <p class="team-member-role">Leader, 1st Developer Back-end</p>
+            </div>
+            <div class="team-member">
+                <img class="team-member-photo" src="./img/Edward.jpg" alt="Team member">
+                <h3 class="team-member-name">Edward Brooks</h3>
+                <p class="team-member-age">(14 y.o)</p>
+                <p class="team-member-role">2nd Developer Front-end</p>
+            </div>
+            <div class="team-member">
+                <img class="team-member-photo" src="./img/Mehroj.jpg" alt="Team member">
+                <h3 class="team-member-name">Mehroj Davlyatov</h3>
+                <p class="team-member-age">(16 y.o)</p>
+                <p class="team-member-role">3D artist, Idea manager</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Пояснение проекта -->
+    <section id="about">
+        <div class="about-container">
+            <h2 class="about-title">About</h2>
+            <p class="about-subtitle">Discover the wonders of our solar system with Solar Explorer. Dive deep into the planets, moons, and stars with an interactive and engaging experience designed for all ages. Join us on this journey to explore the cosmos like never before!</p>
+        </div>
+    </section>
+
+    <!-- Переход на страницу с новостями -->
+    <section id="download">
+        <div class="download-container">
+            <h2>Check our news</h2>
+            <a href="news.html" class="cta-button">Go to News</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SSK. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.add('fade-in');
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const href = this.href;
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                });
+            });
+        });
+
+        // Анимация появления при скролле
+        document.addEventListener('scroll', function() {
+            const elements = document.querySelectorAll('.fade-in-element');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 100) {
+                    element.classList.add('show');
+                }
+            });
+        });
+
+        // Модальное окно
+        const modal = document.getElementById("myModal");
+        const btn = document.getElementById("openModal");
+        const span = document.getElementsByClassName("close")[0];
+            
+        btn.onclick = function() {
+            modal.style.display = "block";
+        }
+        
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../app/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/team_logo.png" type="image/x-icon">
+    <style>
+      .label {
+          position: absolute;
+          color: white;
+          font-family: Arial, sans-serif;
+          background-color: rgba(0, 0, 0, 0.5);
+          padding: 5px;
+          border-radius: 5px;
+      }
+      
+  </style>
+</head>
+<body>
+
+
+    <div id="chatContainer" style="display:none; position: fixed; bottom: 30px; right: 20px; width: 450px; height: 550px; border: 2px solid hwb(0 0% 100%); border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.5); background: linear-gradient(to bottom, #000000, #351b1b, #ff0000); z-index: 1001; opacity: 0.9;">
+        <div id="chatHeader" style="background-color: rgba(255, 255, 255, 0.8); color: #000000; padding: 15px; border-radius: 10px 10px 0 0; font-size: 20px; font-weight: bold;">
+            Chat with AI Assistant
+            <span id="closeChat" style="float:right; cursor:pointer; font-size: 24px;">&times;</span>
+        </div>
+        <div id="chatMessages" style="height: 400px; overflow-y: auto; padding: 10px; font-family: 'Arial', sans-serif; font-size: 14px;">
+        </div>
+        <div style="display: flex; margin: 10px;">
+            <input id="userInput" type="text" placeholder="Type a message..." style="flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 5px; margin-right: 10px; font-size: 14px;">
+            <button id="sendMessage" style="padding: 10px 15px; background-color: #000000; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">Send</button>
+        </div>
+    </div>
+    
+
+    <script>
+            // Обработка нажатия на кнопку
+      document.getElementById('gradientButton').addEventListener('click', function() {
+        // Изменение цвета текста
+        const exploreText = document.getElementById('exploreText');
+        exploreText.classList.toggle('active');
+      });
+    </script>
+
+    <div id="slideWindow1" class="slide-window">
+      <div class="slide-content">
+        <h2>Mercury Info</h2>
+        <br>
+        <p>Mercury is the closest planet to the Sun and has a very thin atmosphere. Its surface is marked by craters, similar to the Moon.</p>
+        <br>
+        <ul>
+            <li><strong>Orbital Speed:</strong> ~47.87 km/s</li>
+            <li><strong>Distance from the Sun:</strong> ~57.91 million km</li>
+            <li><strong>Diameter:</strong> ~4,880 km</li>
+            <li><strong>Mass:</strong> ~0.330 × 10²⁴ kg</li>
+            <li><strong>Number of Moons:</strong> 0</li>
+            <li><strong>Composition:</strong> Rocky planet with a thin atmosphere.</li>
+        </ul>
+        <a href="planets/mercury.html" class="button" target="_blank">Explore more→</a> 
+      </div>
+    </div>
+    
+    <div id="slideWindow2" class="slide-window">
+      <div class="slide-content">
+        <h2>Venus Info</h2>
+        <br>
+        <p>Venus is often referred to as Earth's "sister planet" due to their similar size and composition. It has a thick, toxic atmosphere that traps heat, making it the hottest planet.</p>
+        <br>
+        <ul>
+            <li><strong>Orbital Speed:</strong> ~35.02 km/s</li>
+            <li><strong>Distance from the Sun:</strong> ~108.2 million km</li>
+            <li><strong>Diameter:</strong> ~12,104 km</li>
+            <li><strong>Mass:</strong> ~4.87 × 10²⁴ kg</li>
+            <li><strong>Number of Moons:</strong> 0</li>
+            <li><strong>Composition:</strong> Rocky planet with a very dense atmosphere.</li>
+        </ul>
+        <a href="planets/venus.html" class="button" target="_blank">Explore more→</a> 
+        <div class="button-container">
+          <button id="gradientButton" class="gradient-button">Нажми меня</button>
+          <p id="exploreText" class="explore-text">Explore</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="slideWindow3" class="slide-window">
+      <div class="slide-content">
+        <h2>Earth Info</h2>
+        <br>
+        <p>Earth is the only known planet to support life, with a diverse climate and a significant amount of water. Its atmosphere is primarily composed of nitrogen and oxygen.</p>
+        <br>
+        <ul>
+            <li><strong>Orbital Speed:</strong> ~29.78 km/s</li>
+            <li><strong>Distance from the Sun:</strong> ~149.6 million km</li>
+            <li><strong>Diameter:</strong> ~12,742 km</li>
+            <li><strong>Mass:</strong> ~5.97 × 10²⁴ kg</li>
+            <li><strong>Number of Moons:</strong> 1 (Moon)</li>
+            <li><strong>Composition:</strong> Rocky planet with an atmosphere rich in oxygen.</li>
+        </ul>
+        <a href="/app/planets/earth.html" class="button" target="_blank">Explore more→</a> 
+        <div class="button-container">
+          <button id="gradientButton" class="gradient-button">Нажми меня</button>
+          <p id="exploreText" class="explore-text">Explore</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="slideWindow4" class="slide-window">
+      <div class="slide-content">
+        <h2>Mars Info</h2>
+        <br>
+        <p>Mars is known as the "Red Planet" due to its reddish appearance, which comes from iron oxide (rust) on its surface. It has the largest volcano and canyon in the Solar System.</p>
+        <br>
+        <ul>
+            <li><strong>Orbital Speed:</strong> ~24.07 km/s</li>
+            <li><strong>Distance from the Sun:</strong> ~227.9 million km</li>
+            <li><strong>Diameter:</strong> ~6,779 km</li>
+            <li><strong>Mass:</strong> ~0.642 × 10²⁴ kg</li>
+            <li><strong>Number of Moons:</strong> 2 (Phobos and Deimos)</li>
+            <li><strong>Composition:</strong> Rocky planet with a thin atmosphere.</li>
+        </ul>
+        <a href="planets/mars.html" class="button" target="_blank">Explore more→</a> 
+        <div class="button-container">
+          <button id="gradientButton" class="gradient-button">Нажми меня</button>
+          <p id="exploreText" class="explore-text">Explore</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="slideWindow5" class="slide-window">
+      <div class="slide-content">
+        <h2>Jupiter Info</h2>
+        <br>
+        <p>Jupiter is the largest planet in the Solar System and is known for its Great Red Spot, a giant storm that has been raging for centuries. It has a strong magnetic field and many moons.</p>
+        <br>
+        <ul>
+            <li><strong>Orbital Speed:</strong> ~13.07 km/s</li>
+            <li><strong>Distance from the Sun:</strong> ~778.5 million km</li>
+            <li><strong>Diameter:</strong> ~139,822 km</li>
+            <li><strong>Mass:</strong> ~1.898 × 10²⁴ kg</li>
+            <li><strong>Number of Moons:</strong> 79 (including Ganymede, the largest moon in the Solar System)</li>
+            <li><strong>Composition:</strong> Gas giant with an atmosphere primarily composed of hydrogen and helium.</li>
+        </ul> 
+        <a href="planets/jupiter.html" class="button" target="_blank">Explore more→</a> 
+        <div class="button-container">
+          <button id="gradientButton" class="gradient-button">Нажми меня</button>
+          <p id="exploreText" class="explore-text">Explore</p>
+        </div>
+      </div>
+    </div>
+    
+    <div id="slideWindow6" class="slide-window">
+      <div class="slide-content">
+        <h2>Saturn Info</h2>
+        <br>
+        <p>Saturn is famous for its stunning rings, which are made of ice and rock particles. It is a gas giant with a very low density and many moons.</p>
+        <br>
+        <ul>
+            <li><strong>Orbital Speed:</strong> ~9.69 km/s</li>
+            <li><strong>Distance from the Sun:</strong> ~1,429 million km</li>
+            <li><strong>Diameter:</strong> ~116,464 km</li>
+            <li><strong>Mass:</strong> ~5.683 × 10²⁴ kg</li>
+            <li><strong>Number of Moons:</strong> 83 (including Titan)</li>
+            <li><strong>Composition:</strong> Gas giant famous for its rings.</li>
+        </ul>
+        <a href="planets/saturn.html" class="button" target="_blank">Explore more→</a> 
+
+        </div>
+      </div>
+    </div>
+    
+    <div id="slideWindow7" class="slide-window">
+      <div class="slide-content">
+        <h2>Uranus Info</h2>
+        <br>
+        <p>Uranus is unique among the planets as it rotates on its side, leading to extreme seasonal changes. Its blue color comes from methane in its atmosphere.</p>
+        <br>
+        <ul>
+            <li><strong>Orbital Speed:</strong> ~6.81 km/s</li>
+            <li><strong>Distance from the Sun:</strong> ~2,871 million km</li>
+            <li><strong>Diameter:</strong> ~50,724 km</li>
+            <li><strong>Mass:</strong> ~8.681 × 10²⁴ kg</li>
+            <li><strong>Number of Moons:</strong> 27</li>
+            <li><strong>Composition:</strong> Gas giant with an atmosphere containing methane.</li>
+        </ul>
+        <a href="planets/uranus.html" class="button" target="_blank">Explore more→</a> 
+
+      </div>
+    </div>
+    
+    <div id="slideWindow8" class="slide-window">
+      <div class="slide-content">
+        <h2>Neptune Info</h2>
+        <br>
+        <p>Neptune is known for its strong winds and deep blue color, which is also due to methane. It is the farthest planet from the Sun in the Solar System.</p>
+        <br>
+        <ul>
+            <li><strong>Orbital Speed:</strong> ~5.43 km/s</li>
+            <li><strong>Distance from the Sun:</strong> ~4,495 million km</li>
+            <li><strong>Diameter:</strong> ~49,244 km</li>
+            <li><strong>Mass:</strong> ~1.024 × 10²⁴ kg</li>
+            <li><strong>Number of Moons:</strong> 14 (including Triton)</li>
+            <li><strong>Composition:</strong> Gas giant with a bluish color due to methane in its atmosphere.</li>
+        </ul>
+        <a href="planets/neptune.html" class="button" target="_blank">Explore more→</a> 
+
+      </div>
+    </div>
+
+    <div id="slideWindow9" class="slide-window">
+      <div class="slide-content">
+        <h2>Moon Info</h2>
+        <br>
+        <p>The Moon is Earth's only natural satellite and is the fifth-largest moon in the Solar System. It plays a crucial role in influencing Earth's tides and has a surface marked by craters.</p>
+        <br>
+        <ul>
+            <li><strong>Distance from Earth:</strong> ~384,400 km</li>
+            <li><strong>Diameter:</strong> ~3,474 km</li>
+            <li><strong>Mass:</strong> ~0.073 × 10²⁴ kg</li>
+            <li><strong>Orbital Period:</strong> ~27.3 days</li>
+            <li><strong>Composition:</strong> Rocky body with a very thin atmosphere.</li>
+        </ul>
+        <a href="planets/moon.html" class="button" target="_blank">Explore more→</a> 
+
+      </div>
+    </div>
+    
+    <div id="slideWindow10" class="slide-window">
+      <div class="slide-content">
+        <h2>Sun Info</h2>
+        <br>
+        <p>The Sun is the star at the center of our Solar System and is the primary source of energy for the planets. It is a massive ball of gas, primarily composed of hydrogen and helium.</p>
+        <br>
+        <ul>
+            <li><strong>Distance from Earth:</strong> ~149.6 million km</li>
+            <li><strong>Diameter:</strong> ~1.4 million km</li>
+            <li><strong>Mass:</strong> ~1.989 × 10²⁴ kg</li>
+            <li><strong>Temperature:</strong> ~5,500°C (surface), ~15 million °C (core)</li>
+            <li><strong>Composition:</strong> Primarily hydrogen (about 74%) and helium (about 24%).</li>
+        </ul>
+        <a href="planets/sun.html" class="button" target="_blank">Explore more→</a> 
+
+      </div>
+    </div>
+
+    <div id="slideWindow11" class="slide-window">
+      <div class="slide-content">
+        <h2>Pluto Info</h2>
+        <br>
+        <p>Pluto was once considered the ninth planet of the Solar System but was reclassified as a dwarf planet. It has a complex atmosphere and is mostly made of ice and rock.</p>
+        <br>
+        <ul>
+            <li><strong>Orbital Speed:</strong> ~4.74 km/s</li>
+            <li><strong>Distance from the Sun:</strong> ~5,906 million km (on average)</li>
+            <li><strong>Diameter:</strong> ~2,377 km</li>
+            <li><strong>Mass:</strong> ~0.0146 × 10²⁴ kg</li>
+            <li><strong>Number of Moons:</strong> 5 (including Charon)</li>
+            <li><strong>Composition:</strong> Icy dwarf planet.</li>
+        </ul>
+        <a href="planets/pluto.html" class="button" target="_blank">Explore more→</a> 
+
+      </div>
+    </div>
+
+    <div id="slideWindow12" class="slide-window">
+      <div class="slide-content">
+        <h2>Makemake Info</h2>
+        <br>
+        <p>MakeMake is a dwarf planet located in the Kuiper Belt and was discovered in 2005. It has a bright surface that reflects sunlight, primarily composed of ice and rock.</p>
+        <br>
+        <ul>
+            <li><strong>Distance from the Sun:</strong> ~6,850 million km</li>
+            <li><strong>Diameter:</strong> ~1,430 km</li>
+            <li><strong>Mass:</strong> ~0.00066 × 10²⁴ kg</li>
+            <li><strong>Orbital Period:</strong> ~305 years</li>
+            <li><strong>Composition:</strong> Ice and rock with a reddish color.</li>
+        </ul>
+        <a href="planets/makemake.html" class="button" target="_blank">Explore more→</a> 
+
+      </div>
+    </div>
+
+    <div id="slideWindow13" class="slide-window">
+      <div class="slide-content">
+        <h2>Ceres Info</h2>
+        <br>
+        <p>Ceres is the largest object in the asteroid belt between Mars and Jupiter and was classified as a dwarf planet in 2006. It is thought to contain a significant amount of water ice.</p>
+        <br>
+        <ul>
+            <li><strong>Distance from the Sun:</strong> ~413 million km</li>
+            <li><strong>Diameter:</strong> ~940 km</li>
+            <li><strong>Mass:</strong> ~0.00093 × 10²⁴ kg</li>
+            <li><strong>Orbital Period:</strong> ~4.6 years</li>
+            <li><strong>Composition:</strong> Rocky and icy body with possible subsurface ocean.</li>
+        </ul>
+        <a href="planets/ceres.html" class="button" target="_blank">Explore more→</a> 
+        <div class="button-container">
+          <button id="gradientButton" class="gradient-button">Нажми меня</button>
+          <p id="exploreText" class="explore-text">Explore</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="slideWindow14" class="slide-window">
+      <div class="slide-content">
+        <h2>Eres Info</h2>
+        <br>
+        <p>Haumea is a dwarf planet known for its elongated shape and fast rotation. It is located in the Kuiper Belt and is believed to have a ring system.</p>
+        <br>
+        <ul>
+            <li><strong>Distance from the Sun:</strong> ~6,452 million km</li>
+            <li><strong>Diameter:</strong> ~1,632 km (equatorial), ~1,403 km (polar)</li>
+            <li><strong>Mass:</strong> ~0.00049 × 10²⁴ kg</li>
+            <li><strong>Orbital Period:</strong> ~284 years</li>
+            <li><strong>Composition:</strong> Rocky body with a surface made of ice and crystalline ice.</li>
+        </ul>
+        <a href="planets/eres.html" class="button" target="_blank">Explore more→</a> 
+        <div class="button-container">
+          <button id="gradientButton" class="gradient-button">Нажми меня</button>
+          <p id="exploreText" class="explore-text">Explore</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="slideWindow15" class="slide-window">
+      <div class="slide-content">
+        <h2>Haumea Info</h2>
+        <br>
+        <p>Eris is one of the largest known dwarf planets and was discovered in 2005. It has a highly elliptical orbit and is located in the scattered disk region of the Solar System.</p>
+        <br>
+        <ul>
+            <li><strong>Distance from the Sun:</strong> ~10,120 million km</li>
+            <li><strong>Diameter:</strong> ~2,326 km</li>
+            <li><strong>Mass:</strong> ~0.00166 × 10²⁴ kg</li>
+            <li><strong>Orbital Period:</strong> ~557 years</li>
+            <li><strong>Composition:</strong> Primarily icy body with a surface that may be covered in methane ice.</li>
+        </ul>
+        <a href="planets/haumea.html" class="button" target="_blank">Explore more→</a> 
+        <div class="button-container">
+          <button id="gradientButton" class="gradient-button">Нажми меня</button>
+          <p id="exploreText" class="explore-text">Explore</p>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="button-container">
+      <button id="toggleButton1" class="toggle-button">Mercury →</button>
+      <button id="toggleButton2" class="toggle-button">Venus→</button>
+      <button id="toggleButton3" class="toggle-button">Earth→</button>
+      <button id="toggleButton4" class="toggle-button">Mars→</button>
+      <button id="toggleButton5" class="toggle-button">Jupiter→</button>
+      <button id="toggleButton6" class="toggle-button">Saturn→</button>
+      <button id="toggleButton7" class="toggle-button">Uran→</button>
+      <button id="toggleButton8" class="toggle-button">Neptune→</button>
+      <button id="toggleButton9" class="toggle-button">Moon→</button>
+      <button id="toggleButton10" class="toggle-button">Sun→</button>
+      <button id="toggleButton11" class="toggle-button">Pluto→</button>
+      <button id="toggleButton12" class="toggle-button">Makemake→</button>
+      <button id="toggleButton13" class="toggle-button">Ceres→</button>
+      <button id="toggleButton14" class="toggle-button">Eres→</button>
+      <button id="toggleButton15" class="toggle-button">Haumea→</button>
+    </div>
+ 
+
+
+    
+<!--
+    <div class="toolbar">
+        <button class="tool-btn">
+          <img src="/app/img/astronaut.png" alt="Icon 1" class="icon"><br>
+          Astronaut
+        </button>
+        <button class="tool-btn">
+          <img src="/app/img/aiIcon.png" alt="Icon 2" class="icon"><br>
+          Ai Assistant
+        </button>
+        <button class="tool-btn">
+          <img src="/app/img/music_15218403.png" alt="Icon 3" class="icon"><br>
+          Music
+        </button>
+        <button class="tool-btn">
+          <img src="/app/img/setting_17387792.png" alt="Icon 4" class="icon"><br>
+          Setings
+        </button>
+        <button class="tool-btn" >
+          <img src="/app/img/blue-open-book-library-icon.png" alt="Icon 5" class="icon" ><br>
+          <a href="instructions.html" target="_blank" style="color: white;">Instructions</a>
+        </button>
+        
+        Кнопка для открытия/закрытия панели с дополнительными инструментами 
+        <button class="tool-btn" id="toggle-btn">
+          <img src="img/icons/more.png" alt="More" class="icon"><br>
+          More
+        </button>
+      
+         Скрытая панель с инструментами 6-10
+        <div class="hidden-tools">
+          <button class="tool-btn">
+            <img src="img/icons/icon6.png" alt="Icon 6" class="icon"><br>
+            Button 6
+          </button>
+          <button class="tool-btn">
+            <img src="img/icons/icon7.png" alt="Icon 7" class="icon"><br>
+            Button 7
+          </button>
+          <button class="tool-btn">
+            <img src="img/icons/icon8.png" alt="Icon 8" class="icon"><br>
+            Button 8
+          </button>
+          <button class="tool-btn">
+            <img src="img/icons/icon9.png" alt="Icon 9" class="icon"><br>
+            Button 9
+          </button>
+          <button class="tool-btn">
+            <img src="img/icons/icon10.png" alt="Icon 10" class="icon"><br>
+            Button 10
+          </button>
+          <button class="tool-btn">
+            <img src="img/icons/icon11.png" alt="Icon 11" class="icon"><br>
+            Button 11
+          </button>
+        </div>
+    </div>
+-->
+
+    <div id="clock"></div>
+
+
+    <script type="module" src="/app/scripts/main.js"></script>
+
+
+
+    <!--Music player-->
+
+   
+
+
+
+    
+</body>
+</html>

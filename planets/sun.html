@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/team_logo.png" type="image/x-icon">
+    <title>Sun Information</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: white;
+            overflow-x: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 80vh;
+            padding: 20px;
+        }
+        .sun-info {
+            max-width: 600px;
+            padding: 20px;
+            animation: fadeIn 2s ease;
+        }
+        .sun-info h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: slideInLeft 1.5s ease;
+        }
+        .sun-info p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            animation: slideInLeft 2s ease;
+        }
+        #sunModel {
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            animation: fadeIn 2s ease;
+        }
+        .facts-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            text-align: center;
+            animation: slideUp 2s ease;
+        }
+        .facts-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+        .facts-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .facts-section ul li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease;
+        }
+
+        /* Carousel styles */
+        .carousel {
+            width: 100%;
+            margin: 40px 0;
+            position: relative;
+            text-align: center;
+        }
+        .carousel img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            display: none;
+            transition: all 0.5s ease-in-out;
+        }
+        .carousel img.active {
+            display: block;
+            animation: zoomIn 1s ease;
+        }
+        .carousel .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .carousel .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel .arrow.left {
+            left: 5%;
+        }
+        .carousel .arrow.right {
+            right: 5%;
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #ccc;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="sunModel"></div>
+        <div class="sun-info">
+            <h1>The Sun – Our Star</h1>
+            <p>
+                The Sun is the star at the center of our solar system and is essential for life on Earth. 
+                It provides the light and heat necessary for plants to grow and drives our weather systems. 
+                Composed mainly of hydrogen and helium, the Sun's immense gravitational force keeps the planets in orbit around it.
+                Its surface temperature is about 5,500°C (9,932°F), and it is constantly undergoing nuclear fusion, converting hydrogen into helium and releasing vast amounts of energy.
+            </p>
+        </div>
+    </div>
+
+    <div class="facts-section">
+        <h2>Interesting Facts, Myths, and Scientific Discoveries</h2>
+        <ul>
+            <li>The Sun is about 4.6 billion years old and will continue to shine for another 5 billion years.</li>
+            <li>It accounts for about 99.86% of the total mass of the solar system.</li>
+            <li>The Sun’s energy takes about 8 minutes and 20 seconds to reach Earth.</li>
+            <li>Solar flares are massive explosions on the Sun’s surface that release energy and can affect satellite communications.</li>
+            <li>The Sun will eventually expand into a red giant and engulf the inner planets, including Earth.</li>
+        </ul>
+    </div>
+
+    <div class="carousel">
+        <span class="arrow left">&#9664;</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Solar_Structure.png" class="active" alt="Sun Image 1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/34/Sun_Energy.jpg" alt="Sun Image 2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Sun_illustration.png" alt="Sun Image 3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fd/Coronal_mass_ejection.jpg" alt="Sun Image 4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Sun_photo.jpg" alt="Sun Image 5">
+        <div class="caption">Solar Structure</div>
+        <span class="arrow right">&#9654;</span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        // 3D Model with Enhanced Texture and Animations
+        const sunContainer = document.getElementById('sunModel');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(500, 500);
+        sunContainer.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = true;
+
+        const loader = new THREE.TextureLoader();
+        loader.load('/app/img/textures/8k_sun.jpg', function (texture) {
+            const geometry = new THREE.SphereGeometry(5, 50, 50);
+            const material = new THREE.MeshBasicMaterial({ map: texture });
+            const sun = new THREE.Mesh(geometry, material);
+            scene.add(sun);
+
+            camera.position.z = 10;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                sun.rotation.y += 0.001;
+                controls.update();
+                renderer.render(scene, camera);
+            }
+
+            animate();
+        });
+
+        // Carousel Logic with captions
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+        const totalImages = images.length;
+        const captions = [
+            "Solar Structure",
+            "Sun's Energy",
+            "Sun Illustration",
+            "Coronal Mass Ejection",
+            "Sun Photo"
+        ];
+        const captionElement = document.querySelector('.caption');
+
+        document.querySelector('.arrow.left').addEventListener('click', () => {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex === 0) ? totalImages - 1 : currentImageIndex - 1;
+            images[currentImageIndex].classList.add('active');
+            captionElement.textContent = captions[currentImageIndex];
+        });
+        document.querySelector('.arrow.right').addEventListener('click', () => {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex === totalImages - 1)
+            ? 0 : currentImageIndex + 1;
+            images[currentImageIndex].classList.add('active');
+            captionElement.textContent = captions[currentImageIndex];
+        });
+
+        // Initialize first caption
+        captionElement.textContent = captions[currentImageIndex];
+    </script>
+</body>
+</html>

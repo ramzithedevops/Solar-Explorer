@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/team_logo.png" type="image/x-icon">
+    <title>Moon Information</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: white;
+            overflow-x: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 80vh;
+            padding: 20px;
+        }
+        .planet-info {
+            max-width: 600px;
+            padding: 20px;
+            animation: fadeIn 2s ease;
+        }
+        .planet-info h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: slideInLeft 1.5s ease;
+        }
+        .planet-info p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            animation: slideInLeft 2s ease;
+        }
+        #planetModel {
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            animation: fadeIn 2s ease;
+        }
+        .facts-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            text-align: center;
+            animation: slideUp 2s ease;
+        }
+        .facts-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+        .facts-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .facts-section ul li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease;
+        }
+
+        /* Carousel styles */
+        .carousel {
+            width: 100%;
+            margin: 40px 0;
+            position: relative;
+            text-align: center;
+        }
+        .carousel img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            display: none;
+            transition: all 0.5s ease-in-out;
+        }
+        .carousel img.active {
+            display: block;
+            animation: zoomIn 1s ease;
+        }
+        .carousel .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .carousel .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel .arrow.left {
+            left: 5%;
+        }
+        .carousel .arrow.right {
+            right: 5%;
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #ccc;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="planetModel"></div>
+        <div class="planet-info">
+            <h1>The Moon – Earth's Natural Satellite</h1>
+            <p>
+                The Moon is Earth's only natural satellite and the fifth largest moon in the solar system. 
+                It is about 1/6th the size of Earth and is located approximately 384,400 kilometers (238,855 miles) away. 
+                The Moon's surface is covered in craters and dust, and it has a very thin atmosphere, making it unable to support life.
+                The Moon affects Earth in many ways, including influencing ocean tides and stabilizing the planet's axial tilt.
+            </p>
+        </div>
+    </div>
+
+    <div class="facts-section">
+        <h2>Interesting Facts, Myths, and Scientific Discoveries</h2>
+        <ul>
+            <li>The Moon is the only celestial body humans have set foot on, with the first landing occurring in 1969.</li>
+            <li>The Moon has no atmosphere, which means there is no sound and extreme temperature changes occur.</li>
+            <li>One side of the Moon always faces Earth, a phenomenon known as synchronous rotation.</li>
+            <li>The Moon is gradually moving away from Earth at a rate of about 3.8 centimeters per year.</li>
+            <li>There is water ice present in permanently shadowed craters on the Moon.</li>
+        </ul>
+    </div>
+
+    <div class="carousel">
+        <span class="arrow left">&#9664;</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/The_Moon_2022.jpg" class="active" alt="Moon Image 1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Apollo_11_Landing_Site_on_the_Moon.jpg" alt="Moon Image 2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Lunar_Surface_Above_The_Craters.jpg" alt="Moon Image 3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/TheMoon.jpg" alt="Moon Image 4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Moon_surface.jpg" alt="Moon Image 5">
+        <div class="caption">The Moon</div>
+        <span class="arrow right">&#9654;</span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        // 3D Model with Enhanced Texture and Animations
+        const planetContainer = document.getElementById('planetModel');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(500, 500);
+        planetContainer.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = true;
+
+        const loader = new THREE.TextureLoader();
+        loader.load('/app/img/textures/8k_moon.jpg', function (texture) {
+            const geometry = new THREE.SphereGeometry(5, 50, 50);
+            const material = new THREE.MeshBasicMaterial({ map: texture });
+            const planet = new THREE.Mesh(geometry, material);
+            scene.add(planet);
+
+            camera.position.z = 10;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                planet.rotation.y += 0.001;
+                controls.update();
+                renderer.render(scene, camera);
+            }
+
+            animate();
+        });
+
+        // Carousel Logic with captions
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+        const totalImages = images.length;
+        const captions = [
+            "The Moon",
+            "Apollo 11 Landing Site on the Moon",
+            "Lunar Surface Above The Craters",
+            "The Moon",
+            "Moon Surface"
+        ];
+        const captionElement = document.querySelector('.caption');
+        
+        document.querySelector('.arrow.left').addEventListener('click', () => {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex === 0) ? totalImages - 1 : currentImageIndex - 1;
+            images[currentImageIndex].classList.add('active');
+            captionElement.textContent = captions[currentImageIndex];
+        });
+        document.querySelector('.arrow.right').addEventListener('click', () => {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex === totalImages - 1) ? 0 : currentImageIndex + 1;
+            images[currentImageIndex].classList.add('active');
+            captionElement.textContent = captions[currentImageIndex];
+        });
+    </script>
+</body>
+</html>

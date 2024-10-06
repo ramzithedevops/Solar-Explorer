@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/team_logo.png" type="image/x-icon">
+    <title>Mercury Information</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: white;
+            overflow-x: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 80vh;
+            padding: 20px;
+        }
+        .planet-info {
+            max-width: 600px;
+            padding: 20px;
+            animation: fadeIn 2s ease;
+        }
+        .planet-info h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: slideInLeft 1.5s ease;
+        }
+        .planet-info p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            animation: slideInLeft 2s ease;
+        }
+        #planetModel {
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            animation: fadeIn 2s ease;
+        }
+        .facts-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            text-align: center;
+            animation: slideUp 2s ease;
+        }
+        .facts-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+        .facts-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .facts-section ul li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease;
+        }
+
+        /* Carousel styles */
+        .carousel {
+            width: 100%;
+            margin: 40px 0;
+            position: relative;
+            text-align: center;
+        }
+        .carousel img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            display: none;
+            transition: all 0.5s ease-in-out;
+        }
+        .carousel img.active {
+            display: block;
+            animation: zoomIn 1s ease;
+        }
+        .carousel .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .carousel .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel .arrow.left {
+            left: 5%;
+        }
+        .carousel .arrow.right {
+            right: 5%;
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #ccc;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="planetModel"></div>
+        <div class="planet-info">
+            <h1>Mercury – The Swift Planet</h1>
+            <p>
+                Mercury is the closest planet to the Sun and the smallest in the solar system. 
+                It is known for its swift orbit, completing a full revolution around the Sun in just 88 Earth days. 
+                Mercury has a very thin atmosphere, causing it to experience extreme temperature fluctuations, with daytime temperatures reaching up to 430°C (800°F) and dropping to -180°C (-290°F) at night.
+                Despite being the closest planet to the Sun, it is not the hottest; Venus, with its thick atmosphere, retains heat more effectively.
+            </p>
+        </div>
+    </div>
+
+    <div class="facts-section">
+        <h2>Interesting Facts, Myths, and Scientific Discoveries</h2>
+        <ul>
+            <li>Mercury has no moons or rings, making it one of the simplest planets in the solar system.</li>
+            <li>The planet's surface is covered in craters, similar to Earth's Moon, due to a lack of atmospheric erosion.</li>
+            <li>Named after the Roman messenger god, Mercury is known for its swift movement across the night sky.</li>
+            <li>The planet has a magnetic field, though it is weak compared to Earth’s.</li>
+            <li>Mercury's temperature can vary dramatically, leading to extreme heat and cold in different regions of the planet.</li>
+        </ul>
+    </div>
+
+    <div class="carousel">
+        <span class="arrow left">&#9664;</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Mercury_illustration.jpg" class="active" alt="Mercury Image 1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Mercury_Mariner_10.jpg" alt="Mercury Image 2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Mercury_surface.jpg" alt="Mercury Image 3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Mercury_could_appear_to_the_eyes_of_an_earthling.png" alt="Mercury Image 4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Mercury_True_Colour.jpg" alt="Mercury Image 5">
+        <div class="caption">Mercury Illustration</div>
+        <span class="arrow right">&#9654;</span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        // 3D Model with Enhanced Texture and Animations
+        const planetContainer = document.getElementById('planetModel');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(500, 500);
+        planetContainer.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = true;
+
+        const loader = new THREE.TextureLoader();
+        loader.load('/app/img/textures/8k_mercury.jpg', function (texture) {
+            const geometry = new THREE.SphereGeometry(5, 50, 50);
+            const material = new THREE.MeshBasicMaterial({ map: texture });
+            const planet = new THREE.Mesh(geometry, material);
+            scene.add(planet);
+
+            camera.position.z = 10;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                planet.rotation.y += 0.001;
+                controls.update();
+                renderer.render(scene, camera);
+            }
+
+            animate();
+        });
+
+        // Carousel Logic with captions
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+        const totalImages = images.length;
+        const captions = [
+            "Mercury Illustration",
+            "Mercury as Seen by Mariner 10",
+            "Mercury Surface",
+            "How Mercury Could Appear to the Eyes of an Earthling",
+            "True Color of Mercury"
+        ];
+        const captionElement = document.querySelector('.caption');
+        
+        document.querySelector('.arrow.left').addEventListener('click', () => {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex === 0) ? totalImages - 1 : currentImageIndex - 1;
+            images[currentImageIndex].classList.add('active');
+            captionElement.textContent = captions[currentImageIndex];
+        });
+        document.querySelector('.arrow.right').addEventListener('click', () => {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex === totalImages - 1)
+            ? 0 : currentImageIndex + 1;
+            images[currentImageIndex].classList.add('active');
+            captionElement.textContent = captions[currentImageIndex];
+        });
+
+        // Инициализация для первой подписи
+        captionElement.textContent = captions[currentImageIndex];
+    </script>
+</body>
+</html>

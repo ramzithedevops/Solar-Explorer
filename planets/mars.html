@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../img/team_logo.png" type="image/x-icon">
+    <title>Mars Information</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: white;
+            overflow-x: hidden;
+        }
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            height: 80vh;
+            padding: 20px;
+        }
+        .planet-info {
+            max-width: 600px;
+            padding: 20px;
+            animation: fadeIn 2s ease;
+        }
+        .planet-info h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: slideInLeft 1.5s ease;
+        }
+        .planet-info p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            animation: slideInLeft 2s ease;
+        }
+        #planetModel {
+            width: 500px;
+            height: 500px;
+            margin: auto;
+            animation: fadeIn 2s ease;
+        }
+        .facts-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            text-align: center;
+            animation: slideUp 2s ease;
+        }
+        .facts-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+        .facts-section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .facts-section ul li {
+            font-size: 18px;
+            margin-bottom: 10px;
+            animation: fadeIn 2s ease;
+        }
+
+        /* Carousel styles */
+        .carousel {
+            width: 100%;
+            margin: 40px 0;
+            position: relative;
+            text-align: center;
+        }
+        .carousel img {
+            width: 400px;
+            height: auto;
+            border-radius: 10px;
+            display: none;
+            transition: all 0.5s ease-in-out;
+        }
+        .carousel img.active {
+            display: block;
+            animation: zoomIn 1s ease;
+        }
+        .carousel .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .carousel .arrow:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        .carousel .arrow.left {
+            left: 5%;
+        }
+        .carousel .arrow.right {
+            right: 5%;
+        }
+        .caption {
+            margin-top: 10px;
+            font-size: 18px;
+            color: #ccc;
+            animation: fadeIn 1.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); }
+            to { transform: scale(1); }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="planetModel"></div>
+        <div class="planet-info">
+            <h1>Mars – The Red Planet</h1>
+            <p>
+                Mars is the fourth planet from the Sun and is often referred to as the "Red Planet" due to its reddish appearance, which is caused by iron oxide (rust) on its surface. 
+                It has the largest volcano in the solar system, Olympus Mons, and is home to the deepest, longest canyon, Valles Marineris. 
+                Mars has a thin atmosphere, mostly composed of carbon dioxide, with very little oxygen, resulting in surface temperatures averaging about -80 degrees Fahrenheit (-62 degrees Celsius). 
+                The planet experiences seasons, just like Earth, due to its axial tilt.
+            </p>
+        </div>
+    </div>
+
+    <div class="facts-section">
+        <h2>Interesting Facts, Myths, and Scientific Discoveries</h2>
+        <ul>
+            <li>Mars has two small moons, Phobos and Deimos, which are thought to be captured asteroids.</li>
+            <li>The planet's surface is covered in iron oxide, giving it a reddish appearance.</li>
+            <li>Mars has the largest volcano and the deepest, longest canyon in the solar system.</li>
+            <li>Scientists have found evidence of ancient water flows on Mars, indicating it may have once harbored life.</li>
+            <li>Mars has seasons like Earth, which are caused by its axial tilt and orbit around the Sun.</li>
+        </ul>
+    </div>
+
+    <div class="carousel">
+        <span class="arrow left">&#9664;</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Mars_1000.jpg" class="active" alt="Mars Image 1">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Mars_rover_mosaic.jpg" alt="Mars Image 2">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3d/Global_Mars_2020.jpg" alt="Mars Image 3">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Mars_frost.jpg" alt="Mars Image 4">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Phobos_Mars.jpg" alt="Mars Image 5">
+        <div class="caption">Mars Image 1</div>
+        <span class="arrow right">&#9654;</span>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script>
+        // 3D Model with Enhanced Texture and Animations
+        const planetContainer = document.getElementById('planetModel');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(500, 500);
+        planetContainer.appendChild(renderer.domElement);
+
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        controls.enableZoom = true;
+
+        const loader = new THREE.TextureLoader();
+        loader.load('/app/img/textures/8k_mars.jpg', function (texture) {
+            const geometry = new THREE.SphereGeometry(5, 50, 50);
+            const material = new THREE.MeshBasicMaterial({ map: texture });
+            const planet = new THREE.Mesh(geometry, material);
+            scene.add(planet);
+
+            camera.position.z = 10;
+
+            function animate() {
+                requestAnimationFrame(animate);
+                planet.rotation.y += 0.001;
+                controls.update();
+                renderer.render(scene, camera);
+            }
+
+            animate();
+        });
+
+        // Carousel Logic with captions
+        let currentImageIndex = 0;
+        const images = document.querySelectorAll('.carousel img');
+        const totalImages = images.length;
+        const captions = [
+            "Mars Image 1",
+            "Mars Rover Mosaic",
+            "Global Mars 2020",
+            "Mars Frost",
+            "Phobos and Mars"
+        ];
+        const captionElement = document.querySelector('.caption');
+        
+        document.querySelector('.arrow.left').addEventListener('click', () => {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex === 0) ? totalImages - 1 : currentImageIndex - 1;
+            images[currentImageIndex].classList.add('active');
+            captionElement.textContent = captions[currentImageIndex];
+        });
+        document.querySelector('.arrow.right').addEventListener('click', () => {
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex === totalImages - 1)
+            ? 0 : currentImageIndex + 1;
+            images[currentImageIndex].classList.add('active');
+            captionElement.textContent = captions[currentImageIndex];
+        });
+
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            document.querySelector('.arrow.right').click();
+        }, 5000);
+    </script>
+</body>
+</html>

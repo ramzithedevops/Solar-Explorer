@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css" type="text/css">
+    <link rel="icon" href="img/team_logo.png" type="image/x-icon">
+    <title>Instructions | Solar Explorer</title>
+</head>
+<body>
+    <!-- Навигационная панель -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <img class="nav-menu-image" src="./img/team_logo.png" alt="Team Logo">
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="instructions.html">INSTRUCTION</a></li>
+            <li><a href="app.html">APP</a></li>
+            <li><a href="news.html">NEWS</a></li>
+            <li><a href="profile.html">PROFILE</a></li>
+            <!-- <button id="toggleTheme" class="btn">Toggle Theme</button> -->
+        </ul>
+    </nav>
+
+    <!-- Основная секция с инструкциями и дополнительным контентом -->
+    <div class="main-container">
+        <!-- Боковая панель навигации -->
+        <aside class="sidebar">
+            <ul class="sidebar-menu">
+                <li><a href="step1.html">Step 1: Download the Application</a></li>
+                <li><a href="step2.html">Step 2: Install the Application</a></li>
+                <li><a href="step3.html">Step 3: Create an Account</a></li>
+                <li><a href="step4.html">Step 4: Start Exploring!</a></li>
+                <li><a href="video-tutorial.html">Video Tutorial</a></li>
+            </ul>
+        </aside>
+
+        <!-- Основной контент -->
+        <section class="content">
+            <!-- Контент инструкций -->
+            <div class="instructions-content">
+                <h2>Instructions for Using Solar Explorer</h2>
+                <p>Welcome to the instructions section! Here you will find step-by-step guidance on how to download, install, and use the Solar Explorer app. Follow the steps in the order listed to ensure a smooth experience. If you prefer, you can watch a video tutorial for a visual walkthrough.</p>
+            </div>
+
+            <!-- Раздел About -->
+            <section class="about-section">
+                <h2>About Solar Explorer</h2>
+                <p>Solar Explorer is an innovative app designed to provide an immersive experience for exploring our Solar System. With high-quality graphics, interactive features, and real-time data, you can learn more about each planet, its moons, and other celestial bodies. Perfect for students, educators, and space enthusiasts alike!</p>
+            </section>
+
+            <!-- Раздел What's New -->
+            <section class="whats-new-section">
+                <h2>What's New?</h2>
+                <ul class="whats-new-list">
+                    <li>Version 1.2 - Added new interactive features for exploring Jupiter's moons.</li>
+                    <li>Version 1.1 - Improved user interface and fixed minor bugs.</li>
+                    <li>Version 1.0 - Initial release with full Solar System exploration capabilities.</li>
+                </ul>
+            </section>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 SSK. All rights reserved.</p>
+    </footer>
+
+    <!-- Скрипт для плавных переходов -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.body.classList.add('fade-in');
+            const links = document.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const href = this.href;
+                    document.body.classList.add('fade-out');
+                    setTimeout(() => {
+                        window.location.href = href;
+                    }, 500);
+                });
+            });
+        }); 
+    </script>
+</body>
+</html>
