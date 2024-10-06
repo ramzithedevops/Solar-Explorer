@@ -1,252 +1,252 @@
 * {
-    margin: 0;
-    padding: 0;
-  }
+  margin: 0;
+  padding: 0;
+}
+
+#c {
   
-  #c {
-    
-    background: black;
-    background-size: cover;
-  }
-  .btn-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    position: fixed;
-    bottom: 5px;
-    left: 2%;
-    width: 120px;
-  }
-  .btn {
-    background: white;
-    color: black;
-    font-weight: bold;
-    font-size: 15px;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    border: none;
-    -webkit-touch-callout: none; 
-    -webkit-user-select: none;
-    -khtml-user-select: none; 
-    -moz-user-select: none; 
-    -ms-user-select: none; 
-    user-select: none;
-    outline: none;
-    cursor: pointer;
-  }
-  
-  #msg {
-    position: absolute;
-    background: transparent;
-    color: white;
-    font-weight: bold;
-    font-size: 20px;
-    text-align: center;
-    font-family: sans-serif;
-    margin: 0 auto;
-  }
-  
-  .btn-zoom {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 40px;
-    left: 10px;
-    height: 120px;
-    justify-content: space-between;
-  }
-  
-  .quality-select {
-    position: fixed;
-    top: 20px;
-    right: 5px;
-  }
+  background: black;
+  background-size: cover;
+}
+.btn-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 5px;
+  left: 2%;
+  width: 120px;
+}
+.btn {
+  background: white;
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  border: none;
+  -webkit-touch-callout: none; 
+  -webkit-user-select: none;
+  -khtml-user-select: none; 
+  -moz-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none;
+  outline: none;
+  cursor: pointer;
+}
+
+#msg {
+  position: absolute;
+  background: transparent;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  font-family: sans-serif;
+  margin: 0 auto;
+}
+
+.btn-zoom {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 40px;
+  left: 10px;
+  height: 120px;
+  justify-content: space-between;
+}
+
+.quality-select {
+  position: fixed;
+  top: 20px;
+  right: 5px;
+}
 
 
 /**/
 
 /* Общий стиль для панели инструментов */
 .toolbar {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background-color: #333;
-  padding: 10px 0;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+position: fixed;
+bottom: 0;
+width: 100%;
+display: flex;
+justify-content: space-around;
+background-color: #333;
+padding: 10px 0;
+box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Кнопки в панели инструментов */
 .tool-btn {
-  background-color: #555;
-  color: white;
-  border: none;
-  border-radius: 15px; /* Скругленные края */
-  padding: 10px 20px;
-  cursor: pointer;
-  text-align: center;
-  transition: background-color 0.3s ease;
+background-color: #555;
+color: white;
+border: none;
+border-radius: 15px; /* Скругленные края */
+padding: 10px 20px;
+cursor: pointer;
+text-align: center;
+transition: background-color 0.3s ease;
 }
 
 .icon {
-  width: 30px;
-  height: 30px;
-  margin-bottom: 5px;
+width: 30px;
+height: 30px;
+margin-bottom: 5px;
 }
 
 .tool-btn:hover {
-  background-color: #777;
+background-color: #777;
 }
 
 .tool-btn:active {
-  background-color: #999;
+background-color: #999;
 }
 
 /* Скрытая панель с инструментами */
 .hidden-tools {
-  position: absolute;
-  bottom: 50px; /* Располагаем выше основной панели */
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  background-color: #444;
-  padding: 10px;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(100px); /* Исходная позиция за пределами экрана */
-  transition: all 0.4s ease; /* Анимация */
+position: absolute;
+bottom: 50px; /* Располагаем выше основной панели */
+width: 100%;
+display: flex;
+justify-content: space-around;
+background-color: #444;
+padding: 10px;
+box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+opacity: 0;
+visibility: hidden;
+transform: translateY(100px); /* Исходная позиция за пределами экрана */
+transition: all 0.4s ease; /* Анимация */
 }
 
 /* Показ скрытой панели при активной кнопке */
 .hidden-tools.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
+opacity: 1;
+visibility: visible;
+transform: translateY(0);
 }
 
 
 
 .speed-slider {
-  position: fixed;
-  top: 20px;  /* Положение сверху */
-  left: 50%;  /* По центру экрана */
-  transform: translateX(-50%); 
-  background-color: #2c2c2c;
-  padding: 10px;
-  border-radius: 10px;
-  width: 250px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  color: white;
-  font-family: Arial, sans-serif;
+position: fixed;
+top: 20px;  /* Положение сверху */
+left: 50%;  /* По центру экрана */
+transform: translateX(-50%); 
+background-color: #2c2c2c;
+padding: 10px;
+border-radius: 10px;
+width: 250px;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+color: white;
+font-family: Arial, sans-serif;
 }
 
 .speed-slider label {
-  display: block;
-  margin-bottom: 5px;
-  font-size: 14px;
+display: block;
+margin-bottom: 5px;
+font-size: 14px;
 }
 
 .speed-slider input[type="range"] {
-  width: 100%;
-  -webkit-appearance: none;
-  background: #555;
-  height: 5px;
-  border-radius: 5px;
-  outline: none;
+width: 100%;
+
+background: #555;
+height: 5px;
+border-radius: 5px;
+outline: none;
 }
 
 .speed-slider input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 15px;
-  height: 15px;
-  background: #f0ad4e;
-  border-radius: 50%;
-  cursor: pointer;
+-webkit-appearance: none;
+width: 15px;
+height: 15px;
+background: #f0ad4e;
+border-radius: 50%;
+cursor: pointer;
 }
 
 .speed-slider span {
-  display: block;
-  text-align: right;
-  margin-top: 5px;
-  font-size: 14px;
+display: block;
+text-align: right;
+margin-top: 5px;
+font-size: 14px;
 }
 
 
 /**/
 body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  overflow-x: hidden;
+margin: 0;
+padding: 0;
+font-family: Arial, sans-serif;
+background-color: #f4f4f4;
+overflow-x: hidden;
 }
 
 .slide-window {
-  position: fixed;
-  top: 0;
-  right: -800px; /* Изначально скрыто за экраном */
-  width: 800px;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
-  color: white;
-  padding: 0px;
-  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
-  transition: right 0.5s ease, opacity 0.5s ease; /* Плавное выдвижение и исчезновение текста */
-  overflow: hidden; /* Чтобы не было видно содержимое */
-  opacity: 0; /* Изначально текст невидим */
+position: fixed;
+top: 0;
+right: -800px; /* Изначально скрыто за экраном */
+width: 800px;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+color: white;
+padding: 0px;
+box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+transition: right 0.5s ease, opacity 0.5s ease; /* Плавное выдвижение и исчезновение текста */
+overflow: hidden; /* Чтобы не было видно содержимое */
+opacity: 0; /* Изначально текст невидим */
 }
 
 .slide-content {
-  margin-top: 60px;
-  padding-right: 250px; /* Добавленный отступ справа */
+margin-top: 60px;
+padding-right: 250px; /* Добавленный отступ справа */
 }
 
 /* Контейнер для всех кнопок */
 .button-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px; /* Отступы между кнопками */
+position: fixed;
+top: 20px;
+right: 20px;
+display: flex;
+flex-direction: column;
+gap: 10px; /* Отступы между кнопками */
 }
 
 /* Стили для каждой кнопки */
 .toggle-button {
-  padding: 8px 12px; /* Уменьшенный размер */
-  font-size: 16px; /* Уменьшенный текст */
-  background-color: rgba(51, 51, 51, 0.6); /* Полупрозрачный фон */
-  color: white;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 15px; /* Закругленные углы */
+padding: 8px 12px; /* Уменьшенный размер */
+font-size: 16px; /* Уменьшенный текст */
+background-color: rgba(51, 51, 51, 0.6); /* Полупрозрачный фон */
+color: white;
+border: none;
+cursor: pointer;
+transition: all 0.3s ease;
+border-radius: 15px; /* Закругленные углы */
 }
 
 .toggle-button:hover {
-  background-color: rgba(85, 85, 85, 0.8); /* Более тёмный и менее прозрачный при наведении */
+background-color: rgba(85, 85, 85, 0.8); /* Более тёмный и менее прозрачный при наведении */
 }
 .toggle-button.active {
-  background-color: rgba(85, 85, 85, 0.8); /* Активное состояние кнопки */
+background-color: rgba(85, 85, 85, 0.8); /* Активное состояние кнопки */
 }
 
 
 /*Time*/
 
 #clock {
-  position: absolute;
-  top: 10px; /* Расположим сверху */
-  
-  font-size: 18px; /* Размер шрифта */
-  color: white; /* Цвет текста */
-  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
-  padding: 5px 10px;
-  border-radius: 5px;
-  z-index: 999; /* Чтобы всегда было поверх */
-  font-family: 'Arial', sans-serif;
+position: absolute;
+top: 10px; /* Расположим сверху */
+
+font-size: 18px; /* Размер шрифта */
+color: white; /* Цвет текста */
+background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+padding: 5px 10px;
+border-radius: 5px;
+z-index: 999; /* Чтобы всегда было поверх */
+font-family: 'Arial', sans-serif;
 }
 
 
@@ -254,15 +254,15 @@ body {
 
 
 .planet-label {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  font-size: 14px;
-  font-family: Arial, sans-serif;
-  text-align: center;
-  pointer-events: none; /* Чтобы не мешало кликам по планетам */
+position: absolute;
+background-color: rgba(0, 0, 0, 0.5);
+color: white;
+padding: 5px 10px;
+border-radius: 5px;
+font-size: 14px;
+font-family: Arial, sans-serif;
+text-align: center;
+pointer-events: none; /* Чтобы не мешало кликам по планетам */
 }
 
 
@@ -271,30 +271,30 @@ body {
 
 
 #planetModel {
-  width: 100%; 
-  height: 200px; /* Высота области для отображения модели */
-  margin-top: 20px; /* Отступ сверху */
-  }
+width: 100%; 
+height: 200px; /* Высота области для отображения модели */
+margin-top: 20px; /* Отступ сверху */
+}
 
 
 
 /*button - planet info*/
 
 .button {
-  display: block;
-  margin-top: 20px; /* Отступ сверху */
-  padding: 10px;
-  font-size: 18px;
-  color: blue; /* Цвет текста по умолчанию */
-  background-color: white; /* Начальный цвет фона */
-  border: none;
-  border-radius: 5px; /* Закругление углов */
-  cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход */
-  text-decoration: none; /* Убираем подчеркивание */
-  text-align: center; /* Центрируем текст */
+display: block;
+margin-top: 20px; /* Отступ сверху */
+padding: 10px;
+font-size: 18px;
+color: blue; /* Цвет текста по умолчанию */
+background-color: white; /* Начальный цвет фона */
+border: none;
+border-radius: 5px; /* Закругление углов */
+cursor: pointer;
+transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход */
+text-decoration: none; /* Убираем подчеркивание */
+text-align: center; /* Центрируем текст */
 }
 .button:hover {
-  background-color: blue; /* Цвет фона при наведении */
-  color: white; /* Цвет текста при наведении */
+background-color: blue; /* Цвет фона при наведении */
+color: white; /* Цвет текста при наведении */
 }
